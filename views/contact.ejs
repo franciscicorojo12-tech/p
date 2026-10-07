@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title><%= title %> | Francisco Rojo</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="bg-slideshow" aria-hidden="true">
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+    </div>
+
+    <header class="site-header">
+      <h2>¡Este es el Header con Estilo!</h2>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/about">Acerca de</a>
+        <a href="/contact" class="is-active" aria-current="page">Contacto</a>
+      </nav>
+    </header>
+
+    <main class="page-contact">
+      <section class="contact-hero">
+        <p class="eyebrow">2º DAW · 2026</p>
+        <h1>Hablemos de tu proyecto</h1>
+        <p class="lead">
+          Soy Francisco Rojo, desarrollador web en formación. Si necesitas una web,
+          una colaboración académica o una consulta técnica, completa el formulario
+          y te responderé lo antes posible.
+        </p>
+      </section>
+
+      <section class="contact-grid" aria-label="Información y formulario de contacto">
+        <aside class="contact-info">
+          <article class="info-card">
+            <h2>Datos de contacto</h2>
+            <ul>
+              <li>
+                <span>Correo</span>
+                <a href="mailto:francisco.rojo@daw.local">francisco.rojo@daw.local</a>
+              </li>
+              <li>
+                <span>Teléfono</span>
+                <a href="tel:+34900123456">+34 900 123 456</a>
+              </li>
+              <li>
+                <span>Ubicación</span>
+                <p>España · disponible para trabajo remoto</p>
+              </li>
+              <li>
+                <span>Horario</span>
+                <p>Lunes a viernes, 09:00 – 18:00</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h2>Tiempo de respuesta</h2>
+            <p>Suelo contestar en un plazo de 24 a 48 horas laborables.</p>
+          </article>
+        </aside>
+
+        <form class="contact-form" action="/contact" method="post" novalidate>
+          <h2>Envía un mensaje</h2>
+
+          <% if (sent) { %>
+            <p class="form-alert form-alert--ok" role="status">
+              Mensaje enviado correctamente. Gracias por escribir; te responderé pronto.
+            </p>
+          <% } %>
+
+          <% if (errors.length) { %>
+            <div class="form-alert form-alert--error" role="alert">
+              <p>Revisa estos puntos antes de enviar:</p>
+              <ul>
+                <% errors.forEach(function (error) { %>
+                  <li><%= error %></li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %>
+
+          <div class="form-row">
+            <label for="name">Nombre completo</label>
+            <input id="name" name="name" type="text" autocomplete="name" required minlength="2" value="<%= values.name %>" placeholder="Tu nombre y apellidos" />
+          </div>
+
+          <div class="form-pair">
+            <div class="form-row">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" autocomplete="email" required value="<%= values.email %>" placeholder="tu@correo.com" />
+            </div>
+            <div class="form-row">
+              <label for="phone">Teléfono <em>(opcional)</em></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" value="<%= values.phone %>" placeholder="+34 600 000 000" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="subject">Asunto</label>
+            <select id="subject" name="subject">
+              <option value="consulta" <%= values.subject === 'consulta' ? 'selected' : '' %>>Consulta general</option>
+              <option value="proyecto" <%= values.subject === 'proyecto' ? 'selected' : '' %>>Propuesta de proyecto</option>
+              <option value="colaboracion" <%= values.subject === 'colaboracion' ? 'selected' : '' %>>Colaboración académica</option>
+              <option value="otro" <%= values.subject === 'otro' ? 'selected' : '' %>>Otro</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="6" required minlength="10" placeholder="Cuéntame qué necesitas, plazos y cualquier detalle útil."><%= values.message %></textarea>
+          </div>
+
+          <label class="privacy">
+            <input type="checkbox" name="privacy" required />
+            Acepto el tratamiento de mis datos únicamente para responder a esta solicitud.
+          </label>
+
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>©2026 2DAW. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
