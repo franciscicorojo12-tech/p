@@ -6,13 +6,13 @@ este proyecto usasmos Expres para la creacion de un sitio web
 ### tecnologias usadas
 ## fronted
 - html 5
--CSS3
--vanilla JS
+- CSS3
+- vanilla JS
 
 ## Backend
--Node
--Express
--EJS
+- Node
+- Express
+- EJS
 
 
 
