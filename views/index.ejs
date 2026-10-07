@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Bienvenido a todos y todas a <%= title %></p>
-  <header style="background-color: #4A90E2; padding: 20px 0; color: white; text-align: center; margin-bottom: 30px;">
-    <h2 style="margin: 0; font-size: 2em;">¡Este es el Header con Estilo!</h2>
-    <nav style="margin-top: 10px;">
-      <a href="/" style="color: #fff; text-decoration: underline; margin: 0 15px;">Inicio</a>
-      <a href="/about" style="color: #fff; text-decoration: underline; margin: 0 15px;">Acerca de</a>
-      <a href="/contact" style="color: #fff; text-decoration: underline; margin: 0 15px;">Contacto</a>
-    </nav>
-  </header>
+    <div class="bg-slideshow" aria-hidden="true">
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+    </div>
+
+    <header class="site-header">
+      <h2>¡Este es el Header con Estilo!</h2>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/about">Acerca de</a>
+        <a href="/contact">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1><%= title %></h1>
+      <p>Bienvenido a todos y todas a <%= title %></p>
+    </main>
+
+    <footer class="site-footer">
+      <p>©2026 2DAW. Todos los derechos reservados.</p>
+    </footer>
   </body>
 </html>
